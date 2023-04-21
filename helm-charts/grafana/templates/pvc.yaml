@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+   name: {{ .Values.volume.grafanaData.claimName }}
+spec:
+   storageClassName: {{ .Values.storageClass.gke.name }}
+   accessModes:
+     - ReadWriteOnce
+   resources:
+     requests:
+       storage: {{ .Values.volume.grafanaData.size }}
